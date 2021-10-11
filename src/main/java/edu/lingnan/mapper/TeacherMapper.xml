@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.lingnan.mapper.TeacherMapper">
+    <resultMap id="teacherMap" type="teacher">
+        <result property="tNum" column="t_num"/>
+        <result property="tPassWord" column="t_passWord"/>
+        <result property="tName" column="t_name"/>
+    </resultMap>
+    <select id="verifyLogin" parameterType="teacher" resultMap="teacherMap">
+        select * from teacher where teacher.t_num = #{tNum};
+    </select>
+    <select id="findAll" resultMap="teacherMap">
+        select * from teacher;
+    </select>
+</mapper>
