@@ -1,11 +1,10 @@
-package edu.lingnan.service;
+package edu.lingnan.mapper;
 
-import edu.lingnan.dto.PositionInfo;
 import edu.lingnan.entity.ClassRoom;
 
 import java.util.List;
 
-public interface RoomService {
+public interface RoomMapper {
     /**
      * 查询可预约教室列表
      * @return
