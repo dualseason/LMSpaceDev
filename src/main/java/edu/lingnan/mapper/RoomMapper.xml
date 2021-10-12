@@ -11,4 +11,8 @@
         <result property="rCanables" column="r_canables"/>
         <result property="rNums" column="r_nums"/>
     </resultMap>
+    <select id="queryRoomList" resultMap="classRoomMap">
+        select * from classroom;
+    </select>
+
 </mapper>

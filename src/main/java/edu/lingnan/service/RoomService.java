@@ -1,6 +1,5 @@
 package edu.lingnan.service;
 
-import edu.lingnan.dto.PositionInfo;
 import edu.lingnan.entity.ClassRoom;
 
 import java.util.List;
