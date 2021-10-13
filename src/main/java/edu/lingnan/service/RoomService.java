@@ -18,4 +18,10 @@ public interface RoomService {
      * @return
      */
     int addRoom(RoomDto room);
+
+    /**
+     *
+     * @return
+     */
+    List<ClassRoom> findAllRoom();
 }

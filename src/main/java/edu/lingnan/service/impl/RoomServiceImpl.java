@@ -37,5 +37,10 @@ public class RoomServiceImpl implements RoomService {
         return i;
     }
 
+    @Override
+    public List<ClassRoom> findAllRoom() {
+        return roomMapper.queryRoomList();
+    }
+
 
 }

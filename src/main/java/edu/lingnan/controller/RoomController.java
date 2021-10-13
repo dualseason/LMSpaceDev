@@ -44,4 +44,13 @@ public class RoomController {
         }
         return new Result("0", null, "操作失败");
     }
+
+    @GetMapping("/findAllRoom")
+    public Result findAllRoom(){
+        List<ClassRoom> classRooms = roomService.queryRoomList();
+        if (classRooms.size() > 0) {
+            return new Result("200", classRooms, "操作成功");
+        }
+        return new Result("0", classRooms, "操作失败");
+    }
 }
