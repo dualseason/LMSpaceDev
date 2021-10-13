@@ -1,5 +1,6 @@
 package edu.lingnan.service.impl;
 
+import edu.lingnan.dto.RoomDto;
 import edu.lingnan.entity.ClassRoom;
 import edu.lingnan.mapper.RoomMapper;
 import edu.lingnan.service.RoomService;
@@ -29,4 +30,12 @@ public class RoomServiceImpl implements RoomService {
         }
         return classRooms;
     }
+
+    @Override
+    public int addRoom(RoomDto room) {
+        int i = roomMapper.addRoom(room);
+        return i;
+    }
+
+
 }

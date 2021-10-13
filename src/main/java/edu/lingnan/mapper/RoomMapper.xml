@@ -15,4 +15,9 @@
         select * from classroom;
     </select>
 
+    <insert id="addRoom" parameterType="edu.lingnan.dto.RoomDto">
+        insert into classroom(r_room, r_status, r_building, r_canables, r_nums)
+        values (#{roomName},#{roomIsOpen},#{roomBuildingName},#{roomCanables},#{roomNums});
+    </insert>
+
 </mapper>
