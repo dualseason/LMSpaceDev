@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -39,5 +40,10 @@ public class TeacherController {
             return new Result("200",all,"操作成功");
         }
         return new Result("0","","操作失败");
+    }
+
+    @PostMapping("/register")
+    public Result Register(){
+        return null;
     }
 }

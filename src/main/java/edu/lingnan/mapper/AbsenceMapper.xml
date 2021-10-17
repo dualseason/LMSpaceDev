@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.lingnan.mapper.AbsenceMapper">
+    <resultMap id="queryAllAbsencesMap" type="edu.lingnan.entity.Absence">
+        <result property="aId" column="a_id"/>
+        <result property="bId" column="b_id"/>
+        <result property="aTime" column="a_time"/>
+    </resultMap>
+    <select id="queryAllAbsences" resultMap="queryAllAbsencesMap">
+        SELECT * from absence;
+    </select>
+    <insert id="addOneAbsence">
+        insert into absence(b_id,a_time) values (#{bId},#{aTime});
+    </insert>
+    <delete id="deleteOneAbsence">
+        DELETE FROM absence where b_id =#{bid};
+    </delete>
+</mapper>

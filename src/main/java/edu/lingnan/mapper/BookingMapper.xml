@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.lingnan.mapper.BookingMapper">
+    <resultMap id="queryUserfulBookingListMap" type="edu.lingnan.dto.BookingInfo">
+        <result property="bId" column="b_id"/>
+        <result property="seatId" column="seat_id"/>
+        <result property="rRoom" column="r_room"/>
+        <result property="rBuilding" column="r_building"/>
+    </resultMap>
+    <select id="queryUserfulBookingList" resultMap="queryUserfulBookingListMap">
+        select b.b_id,b.seat_id,c.r_room,c.r_building from seat as s,classroom as c,booking as b where s.r_id=c.r_id and b.seat_id=s.seat_id and b.b_useFul=1 and c.r_status=1;
+    </select>
+</mapper>
