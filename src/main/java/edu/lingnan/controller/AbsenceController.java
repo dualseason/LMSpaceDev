@@ -7,6 +7,7 @@ import edu.lingnan.service.AbsenceService;
 import edu.lingnan.vo.Request;
 import edu.lingnan.vo.Result;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,8 @@ import java.util.List;
 public class AbsenceController {
     @Autowired
     private AbsenceService absenceService;
+
+    @ApiOperation(value = "废弃")
     @GetMapping("/queryAllAbsences")
     public Result queryAllAbsences(){
         List<Absence> absences = absenceService.queryAllAbsences();
@@ -35,6 +38,8 @@ public class AbsenceController {
             return new Result("0","null","操作失败");
         }
     }
+
+    @ApiOperation(value = "增加一个缺席记录")
     @PostMapping("/addOneAbsence")
     public Result addOneAbsence(@RequestBody Request request){
         Object data = request.getData();
