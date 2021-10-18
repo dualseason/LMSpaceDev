@@ -1,13 +1,14 @@
 package edu.lingnan.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.lingnan.config.ApiGlobalModel;
+import edu.lingnan.config.ApiJsonModel;
 import edu.lingnan.dto.AbsenceInfo;
 import edu.lingnan.entity.Absence;
 import edu.lingnan.service.AbsenceService;
 import edu.lingnan.vo.Request;
 import edu.lingnan.vo.Result;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,17 @@ public class AbsenceController {
         }
     }
 
+    /**
+     * 文档使用请参考 : https://blog.dualseason.com/index.php/archives/166/
+     * @param request
+     * @return
+     */
     @ApiOperation(value = "增加一个缺席记录")
     @PostMapping("/addOneAbsence")
+    @ApiJsonModel({
+            @ApiModelProperty(name = "id", value = "收件人电话",example = "18506613086"),
+            @ApiModelProperty(name = "telNumber", value = "收货地址id",example = "岭南师范学院")
+    })
     public Result addOneAbsence(@RequestBody Request request){
         Object data = request.getData();
         log.info("data=>{}",data);
