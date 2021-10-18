@@ -15,6 +15,5 @@ public class Result implements Serializable {
      * 200成功，非200失败
      */
     private String resCode;
-    private Object data;
     private String message;
 }

@@ -1,5 +1,6 @@
 package edu.lingnan.dto;
 
+import edu.lingnan.vo.Result;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

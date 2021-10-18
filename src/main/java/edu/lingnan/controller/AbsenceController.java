@@ -3,6 +3,7 @@ package edu.lingnan.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.lingnan.config.ApiGlobalModel;
 import edu.lingnan.config.ApiJsonModel;
+import edu.lingnan.controller.model.AddOneAbsenceRequest;
 import edu.lingnan.dto.AbsenceInfo;
 import edu.lingnan.entity.Absence;
 import edu.lingnan.service.AbsenceService;
@@ -28,18 +29,6 @@ public class AbsenceController {
     @Autowired
     private AbsenceService absenceService;
 
-    @ApiOperation(value = "废弃")
-    @GetMapping("/queryAllAbsences")
-    public Result queryAllAbsences(){
-        List<Absence> absences = absenceService.queryAllAbsences();
-        if(absences.size() > 0){
-            return new Result("200",absences,"操作成功");
-        }
-        else{
-            return new Result("0","null","操作失败");
-        }
-    }
-
     /**
      * 文档使用请参考 : https://blog.dualseason.com/index.php/archives/166/
      * @param request
@@ -48,20 +37,24 @@ public class AbsenceController {
     @ApiOperation(value = "增加一个缺席记录")
     @PostMapping("/addOneAbsence")
     @ApiJsonModel({
-            @ApiModelProperty(name = "id", value = "收件人电话",example = "18506613086"),
-            @ApiModelProperty(name = "telNumber", value = "收货地址id",example = "岭南师范学院")
+            @ApiModelProperty(name = "bId", value = "预约编号",example = "21"),
+            @ApiModelProperty(name = "aTime", value = "当天日期",example = "2021-10-18"),
+            @ApiModelProperty(name = "todayStatus", value = "当天状态",example = "true")
     })
-    public Result addOneAbsence(@RequestBody Request request){
-        Object data = request.getData();
-        log.info("data=>{}",data);
-        ObjectMapper objectMapper = new ObjectMapper();
-        AbsenceInfo absenceInfo = objectMapper.convertValue(data, AbsenceInfo.class);
-        log.info("absenceInfo=>{}",absenceInfo);
+    public Result addOneAbsence(@RequestBody AddOneAbsenceRequest request){
+        AbsenceInfo absenceInfo = new AbsenceInfo();
+        absenceInfo.setATime(request.getATime());
+        absenceInfo.setBId(request.getBId());
+        absenceInfo.setTodayStatus(request.getTodayStatus());
         int i = absenceService.addOneAbsence(absenceInfo);
         if(i > 0){
-            return new Result("200",absenceInfo,"操作成功");
+            absenceInfo.setResCode("200");
+            absenceInfo.setMessage("操作成功");
+            return absenceInfo;
         }else {
-            return new Result("0",absenceInfo,"操作失败");
+            absenceInfo.setResCode("0");
+            absenceInfo.setMessage("操作失败");
+            return absenceInfo;
         }
     }
 }

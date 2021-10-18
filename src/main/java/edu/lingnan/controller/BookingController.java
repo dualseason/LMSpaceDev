@@ -1,5 +1,6 @@
 package edu.lingnan.controller;
 
+import edu.lingnan.controller.result.QueryUserfulBookingListResult;
 import edu.lingnan.dto.BookingInfo;
 import edu.lingnan.entity.ClassRoom;
 import edu.lingnan.service.BookingService;
@@ -29,10 +30,17 @@ public class BookingController {
     public Result queryUserfulBookingList() {
         List<BookingInfo> bookingInfos = bookingService.queryUserfulBookingList();
         if(bookingInfos.size()>0){
-            return new Result("200",bookingInfos,"操作成功");
+            QueryUserfulBookingListResult result = new QueryUserfulBookingListResult();
+            result.setBookingInfos(bookingInfos);
+            result.setResCode("200");
+            result.setMessage("操作成功");
+            return result;
         }
         else{
-            return new Result("0",null,"操作失败");
+            QueryUserfulBookingListResult result = new QueryUserfulBookingListResult();
+            result.setMessage("操作失败");
+            result.setResCode("0");
+            return result;
         }
     }
 }

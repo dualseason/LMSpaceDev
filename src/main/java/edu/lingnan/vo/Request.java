@@ -22,18 +22,4 @@ public class Request implements Serializable {
     private String sign;
     @JsonProperty("timestamp")
     private String timestamp;
-    @JsonProperty("data")
-    private Object data;
-
-    /**
-     * 当没有用户的时候使用
-     * @param sign
-     * @param timestamp
-     * @param data
-     */
-    public Request(String sign, String timestamp, Object data) {
-        this.sign = sign;
-        this.timestamp = timestamp;
-        this.data = data;
-    }
 }
