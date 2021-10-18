@@ -42,7 +42,7 @@ public class ApiJsonModelBuilder implements ParameterBuilderPlugin {
     /**
      * 动态生成的Class的包路径 自由定义
      */
-    private final static String BASE_PACKAGE = "com.platform.entity.";
+    private final static String BASE_PACKAGE = "edu.lingnan.entity.";
     /**
      * 默认类名
      */
