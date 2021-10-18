@@ -1,8 +1,7 @@
 package edu.lingnan.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.lingnan.config.ApiGlobalModel;
-import edu.lingnan.config.ApiJsonModel;
+import edu.lingnan.config.*;
 import edu.lingnan.controller.model.AddOneAbsenceRequest;
 import edu.lingnan.dto.AbsenceInfo;
 import edu.lingnan.entity.Absence;
@@ -37,9 +36,9 @@ public class AbsenceController {
     @ApiOperation(value = "增加一个缺席记录")
     @PostMapping("/addOneAbsence")
     @ApiJsonModel({
-            @ApiModelProperty(name = "bId", value = "预约编号",example = "21"),
-            @ApiModelProperty(name = "aTime", value = "当天日期",example = "2021-10-18"),
-            @ApiModelProperty(name = "todayStatus", value = "当天状态",example = "true")
+            @ApiModelProperty(name = "bId", value = "预约编号",example = "21",required = true),
+            @ApiModelProperty(name = "aTime", value = "当天日期",example = "2021-10-18",required = true),
+            @ApiModelProperty(name = "todayStatus", value = "当天状态",example = "true",required = true)
     })
     public Result addOneAbsence(@RequestBody AddOneAbsenceRequest request){
         AbsenceInfo absenceInfo = new AbsenceInfo();

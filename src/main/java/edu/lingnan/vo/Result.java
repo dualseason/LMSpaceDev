@@ -1,5 +1,6 @@
 package edu.lingnan.vo;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,8 @@ public class Result implements Serializable {
     /**
      * 200成功，非200失败
      */
+    @ApiModelProperty(name = "resCode",value = "resCode")
     private String resCode;
+    @ApiModelProperty(name = "message",value = "message")
     private String message;
 }
