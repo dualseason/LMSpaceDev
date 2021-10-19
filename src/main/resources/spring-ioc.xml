@@ -14,10 +14,10 @@
 
     <!--配置Druid数据库连接池-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/booking?serverTimezone=GMT%2B8&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
-        <property name="username" value="root"/>
-        <property name="password" value="chen0215"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://159.75.103.206:3306/lmspace?serverTimezone=GMT%2B8&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="LMSpace"/>
+        <property name="password" value="HRZKGPF7C5t4ddBz"/>
     </bean>
 
     <!--配置SqlSessionFactory-->
